@@ -1,0 +1,30 @@
+@import "../../styles/utility";
+
+.aqi-general-container {
+  @include centered-container;
+  height: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+  order: 3;
+  .comp-container {
+    @include centered-container;
+    justify-items: stretch;
+    background-color: green;
+    width: 5em;
+    padding: 8px 0px;
+    border-radius: 8px;
+    color: $secondary-color;
+    gap: 24px;
+    .comp-name {
+      font-size: 1.4em;
+      background-color: inherit;
+      color: inherit;
+    }
+    .comp-amount {
+      font-size: 1.4em;
+      background-color: inherit;
+      color: inherit;
+    }
+  }
+}

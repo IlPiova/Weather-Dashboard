@@ -1,0 +1,62 @@
+//Dichiarazione variabili
+$primary-color: #747bff;
+$secondary-color: white;
+
+//Dichiarazione mixins
+@mixin centered-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+.root {
+  @include centered-container;
+  gap: 24px;
+  max-width: 1280px;
+  margin: 24px;
+  text-align: center;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @include centered-container;
+  background-color: #646cff;
+  min-width: 100%;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.25;
+}
+h2 {
+  min-width: 100%;
+  font-size: 2.5em;
+  color: $secondary-color;
+}
+
+// button {
+//   border-radius: 12px;
+//   padding: 0.2em 0.5em;
+//   font-weight: 500;
+//   font-family: inherit;
+//   background-color: #1a1a1a;
+//   cursor: pointer;
+
+//   &:hover {
+//     border-color: #646cff;
+//   }
+// }

@@ -1,0 +1,11 @@
+@import "../../styles/utility";
+.sidebar {
+  @include centered-container;
+  width: 100%;
+  background-color: $secondary-color;
+  padding: 24px;
+  gap: 12px;
+  color: black;
+  border-radius: 24px;
+  order: 1;
+}
