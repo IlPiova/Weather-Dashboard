@@ -1,0 +1,9 @@
+@import "../../styles/utility";
+
+.hourly-container {
+  @extend %centered-container;
+  @extend %container-style;
+  grid-area: hourly;
+  gap: 1em;
+  background-color: white;
+}

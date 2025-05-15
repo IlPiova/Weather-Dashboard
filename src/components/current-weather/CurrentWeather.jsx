@@ -66,31 +66,30 @@ export default function CurrentWeather() {
   }
   return (
     <>
-      {weatherData && <h3 className="today"> {today}</h3>}
       {weatherData && (
-        <div className="current-weather-container">
-          <img
-            src={`https://openweathermap.org/img/wn/${curWeather.weather[0].icon}@2x.png`}
-            alt="weather-icon "
-          />
-          <h2 className="temp">{Math.round(curWeather.temp)}°</h2>
-          <p className="description"> {curWeather.weather[0].description}</p>
-        </div>
-      )}
-      {weatherData && (
-        <div className="day-phases-container">
-          <p>Sunrise: {sunrise}</p>
-          <p>Sunset: {sunset}</p>
-        </div>
-      )}
+        <div className="general-weather-container">
+          <div className="current-weather-container">
+            <img
+              src={`https://openweathermap.org/img/wn/${curWeather.weather[0].icon}@2x.png`}
+              alt="weather-icon "
+            />
+            <h2 className="today"> {today}</h2>
+            <h2 className="temp">{Math.round(curWeather.temp)}°</h2>
+            <p className="description"> {curWeather.weather[0].description}</p>
+          </div>
 
-      {weatherData && (
-        <div className="other-info">
-          <p>
-            wind: {curWeather.wind_speed} | {curWeather.wind_deg} deg
-          </p>
+          <div className="day-phases-container">
+            <p>Sunrise: {sunrise}</p>
+            <p>Sunset: {sunset}</p>
+          </div>
 
-          <p>humidity: {curWeather.humidity} %</p>
+          <div className="other-info">
+            <p>
+              wind: {curWeather.wind_speed} | {curWeather.wind_deg} deg
+            </p>
+
+            <p>humidity: {curWeather.humidity} %</p>
+          </div>
         </div>
       )}
     </>

@@ -1,16 +1,21 @@
-// import { useContext } from "react";
-// import { hourlyContext } from "../../stores/context";
-// import LineChartComponent from "../lineChart/LineChart";
+import { useContext } from "react";
+import { hourlyContext } from "../../stores/context";
+import LineChartComponent from "../lineChart/LineChart";
 
-// export default function HourlyComponent() {
-//   const { hourlyData } = useContext(hourlyContext);
-//   console.log(hourlyData);
+import "./hourly.scss";
 
-//   return (
-//     <>
-//       <LineChartComponent data={hourlyData} />
-//     </>
-//   );
-// }
+export default function HourlyComponent() {
+  const { hourlyData } = useContext(hourlyContext);
+  console.log(hourlyData);
 
-//RIFARE CON GRAFICO A BARREEEE
+  return (
+    <>
+      {hourlyData && (
+        <div className="hourly-container">
+          <h2>Next 24h</h2>
+          <LineChartComponent data={hourlyData} />
+        </div>
+      )}
+    </>
+  );
+}

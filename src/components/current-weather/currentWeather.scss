@@ -1,33 +1,53 @@
 @import "../../styles/utility";
-
-.current-weather-container {
+.general-weather-container {
   @extend %centered-container;
-  @extend %container-style;
-  background-color: $deep-blue;
-  img {
-    width: 80%;
-    height: auto;
-    object-fit: cover;
+  // @extend %container-style;
+  justify-content: stretch;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+
+  .current-weather-container {
+    @extend %centered-container;
+    @extend %container-style;
+    justify-content: stretch;
+    background-color: $deep-blue;
+    height: 100%;
+    color: $light-text-color;
+    font-size: 1em;
+
+    img {
+      width: 80%;
+      height: auto;
+      object-fit: cover;
+      margin-bottom: 0;
+    }
+    .temp {
+      @extend %inter-bold;
+      font-size: 2em;
+      color: $light-text-color;
+      margin-bottom: 0.5em;
+      align-self: center;
+    }
+    .today {
+      color: $light-text-color;
+      font-size: 1em;
+      margin-bottom: 1em;
+      align-self: center;
+    }
   }
-  .temp {
-    @extend %inter-bold;
-    font-size: 2em;
+
+  .day-phases-container {
+    @extend %centered-container;
+    @extend %container-style;
+    background: $deep-orange;
+    margin-top: 12px;
   }
-}
-.today {
-  grid-area: day;
-}
 
-.day-phases-container {
-  @extend %centered-container;
-  @extend %container-style;
-  background: $deep-orange;
-  margin-top: 12px;
-}
-
-.other-info {
-  @extend %centered-container;
-  @extend %container-style;
-  background: $deep-blue;
-  margin-top: 12px;
+  .other-info {
+    @extend %centered-container;
+    @extend %container-style;
+    background: $deep-blue;
+    margin-top: 12px;
+  }
 }

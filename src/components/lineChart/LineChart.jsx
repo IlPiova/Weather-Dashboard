@@ -12,13 +12,14 @@ import {
 import "./lineChart.scss";
 
 export default function LineChartComponent({ data }) {
+  const filteredData = data ? data.slice(0, 24) : [];
   return (
     <>
-      {data && (
+      {filteredData && (
         <div className="chart-container">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
-              data={data}
+              data={filteredData}
               margin={{
                 top: 5,
                 right: 30,
@@ -67,13 +68,11 @@ export function CustomTooltip({ active, payload, label }) {
     weekday: "short",
     day: "numeric",
     month: "long",
-    hour: "2-digit",
-    minute: "2-digit",
   });
 
   return (
     <div className="tooltip-container">
-      <p className="date-style">{formattedDate}</p>
+      <p>{formattedDate}</p>
       {payload.map((entry, index) => (
         <p key={index} style={{ color: entry.color }}>
           {entry.name}:{" "}
