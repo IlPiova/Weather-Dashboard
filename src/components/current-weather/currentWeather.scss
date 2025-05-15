@@ -41,6 +41,8 @@
       @extend %container-style;
       background: $deep-orange;
       margin-top: 12px;
+      gap: 1em;
+      color: $light-text-color;
     }
 
     .other-info {
@@ -48,6 +50,8 @@
       @extend %container-style;
       background: $deep-blue;
       margin-top: 12px;
+      gap: 1em;
+      color: $light-text-color;
     }
   }
 }

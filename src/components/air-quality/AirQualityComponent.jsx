@@ -112,26 +112,28 @@ export default function AirQualityComponent() {
     compArr = Object.entries(components);
   }
   return (
-    <div className="aqi-general-container">
-      {AQData && <h2>Air Quality Index</h2>}
-      <div className="aqi-container">
-        {AQData &&
-          compArr.map((singleComp, i) => (
-            <div
-              key={i}
-              className="comp-container"
-              style={{
-                backgroundColor: getColorByPollutant(
-                  singleComp[0],
-                  singleComp[1]
-                ),
-              }}
-            >
-              <p className="comp-amount">{singleComp[1]}</p>
-              <p className="comp-name">{singleComp[0].toUpperCase()}</p>
-            </div>
-          ))}
+    AQData && (
+      <div className="aqi-general-container">
+        <h2>Air Quality Index</h2>
+        <div className="aqi-container">
+          {compArr &&
+            compArr.map((singleComp, i) => (
+              <div
+                key={i}
+                className="comp-container"
+                style={{
+                  backgroundColor: getColorByPollutant(
+                    singleComp[0],
+                    singleComp[1]
+                  ),
+                }}
+              >
+                <p className="comp-amount">{singleComp[1]}</p>
+                <p className="comp-name">{singleComp[0].toUpperCase()}</p>
+              </div>
+            ))}
+        </div>
       </div>
-    </div>
+    )
   );
 }

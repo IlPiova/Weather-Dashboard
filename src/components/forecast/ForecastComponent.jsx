@@ -31,11 +31,11 @@ export default function ForecastComponent() {
   }
 
   return (
-    <div className="forecast-general-container">
-      {forecastData && <h2>Next days</h2>}
-      <div className="forecast-container">
-        {forecastData &&
-          forecastData.map((day, i) => (
+    forecastData && (
+      <div className="forecast-general-container">
+        <h2>Next days</h2>
+        <div className="forecast-container">
+          {forecastData.map((day, i) => (
             <div key={i} className="day-container">
               <p className="day-name">{makeWeekDay(day.dt)}</p>
               <img
@@ -44,8 +44,9 @@ export default function ForecastComponent() {
               />
               <p className="day-temp">{Math.round(day.temp.day)}°</p>
             </div>
-          ))}{" "}
+          ))}
+        </div>
       </div>
-    </div>
+    )
   );
 }

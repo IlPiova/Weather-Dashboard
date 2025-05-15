@@ -17,9 +17,13 @@
     .comp-container {
       @extend %centered-container;
       @extend %container-style;
-      gap: 1em;
-      width: 5em;
+      gap: 0.8em;
+      width: 4em;
       height: auto;
+      .comp-amount {
+        font-size: 1.2em;
+        font-weight: 500;
+      }
     }
   }
 }

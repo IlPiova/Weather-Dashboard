@@ -85,7 +85,8 @@ h2 {
       "forecast"
       "hourly"
       "aqi";
-    gap: 12px;
-    margin: 0.5em;
+    gap: 1em;
+    margin: 1.5em;
+    place-items: center;
   }
 }
