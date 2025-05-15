@@ -77,18 +77,19 @@ export default function CurrentWeather() {
             <h2 className="temp">{Math.round(curWeather.temp)}°</h2>
             <p className="description"> {curWeather.weather[0].description}</p>
           </div>
+          <div className="secondary-info">
+            <div className="day-phases-container">
+              <p>Sunrise: {sunrise}</p>
+              <p>Sunset: {sunset}</p>
+            </div>
 
-          <div className="day-phases-container">
-            <p>Sunrise: {sunrise}</p>
-            <p>Sunset: {sunset}</p>
-          </div>
+            <div className="other-info">
+              <p>
+                wind: {curWeather.wind_speed} | {curWeather.wind_deg} deg
+              </p>
 
-          <div className="other-info">
-            <p>
-              wind: {curWeather.wind_speed} | {curWeather.wind_deg} deg
-            </p>
-
-            <p>humidity: {curWeather.humidity} %</p>
+              <p>humidity: {curWeather.humidity} %</p>
+            </div>
           </div>
         </div>
       )}

@@ -3,7 +3,6 @@
 .aqi-general-container {
   @extend %centered-container;
   @extend %container-style;
-  width: 100%;
   grid-area: aqi;
   background-color: white;
   .aqi-container {

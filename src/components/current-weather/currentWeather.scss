@@ -1,7 +1,6 @@
 @import "../../styles/utility";
 .general-weather-container {
   @extend %centered-container;
-  // @extend %container-style;
   justify-content: stretch;
   background-color: white;
   width: 100%;
@@ -36,18 +35,41 @@
       align-self: center;
     }
   }
+  .secondary-info {
+    .day-phases-container {
+      @extend %centered-container;
+      @extend %container-style;
+      background: $deep-orange;
+      margin-top: 12px;
+    }
 
-  .day-phases-container {
-    @extend %centered-container;
-    @extend %container-style;
-    background: $deep-orange;
-    margin-top: 12px;
+    .other-info {
+      @extend %centered-container;
+      @extend %container-style;
+      background: $deep-blue;
+      margin-top: 12px;
+    }
   }
+}
 
-  .other-info {
-    @extend %centered-container;
-    @extend %container-style;
-    background: $deep-blue;
-    margin-top: 12px;
+@media screen and (max-width: 798px) {
+  .general-weather-container {
+    flex-direction: row;
+    gap: 1em;
+    flex-grow: 2;
+    .secondary-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      justify-items: stretch;
+      align-items: center;
+      height: 100%;
+      .day-phases-container {
+        flex: 1;
+      }
+      .other-info {
+        flex: 1;
+      }
+    }
   }
 }
