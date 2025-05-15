@@ -1,62 +1,72 @@
-//Dichiarazione variabili
-$primary-color: #747bff;
-$secondary-color: white;
+//Dichiarazione Variabili
+$bg-color: #f0f8ff;
+$deep-blue: #3894f7;
+$deep-orange: #ffa31c;
+$light-text-color: white;
+$dark-text-color: black;
 
-//Dichiarazione mixins
-@mixin centered-container {
+//classi placeholder
+%centered-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-* {
-  margin: 0;
-  box-sizing: border-box;
-  font-size: 1em;
+%inter-black {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+%inter-bold {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
-.root {
-  @include centered-container;
-  gap: 24px;
-  max-width: 1280px;
-  margin: 24px;
-  text-align: center;
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+%inter-regular {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 400;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
 }
 
+%container-style {
+  padding: 0.8em;
+  width: 100%;
+  height: fit-content;
+  border-radius: 12px;
+}
+
+//classi condivise
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
-  @include centered-container;
-  background-color: #646cff;
-  min-width: 100%;
-  min-height: 100vh;
+  background-color: $bg-color;
 }
-
+p {
+  @extend %inter-regular;
+}
 h1 {
-  font-size: 3.2em;
-  line-height: 1.25;
+  @extend %inter-black;
 }
 h2 {
-  min-width: 100%;
-  font-size: 2.5em;
-  color: $secondary-color;
+  @extend %inter-bold;
 }
 
-// button {
-//   border-radius: 12px;
-//   padding: 0.2em 0.5em;
-//   font-weight: 500;
-//   font-family: inherit;
-//   background-color: #1a1a1a;
-//   cursor: pointer;
-
-//   &:hover {
-//     border-color: #646cff;
-//   }
-// }
+#root {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.5fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "day day sidebar"
+    "forecast forecast sidebar"
+    "hourly hourly sidebar"
+    "aqi aqi sidebar";
+  gap: 24px;
+}

@@ -6,6 +6,7 @@ export default function GeoReq() {
   //Dichiarazione contesti utili
   const { geoCoords, setGeoCoords } = useContext(geoContext);
   const { cityName } = useContext(cityContext);
+  const baseUrl = "https://api.openweathermap.org/";
 
   let endPoint = null;
   //Dichiarazione endpoint richiesta api
@@ -13,7 +14,7 @@ export default function GeoReq() {
     endPoint = `geo/1.0/direct?q=${cityName}`;
 
   // Salvataggio dati ottenuti
-  const [data, loading, error] = useFetch(endPoint);
+  const [data, loading, error] = useFetch(baseUrl, endPoint);
 
   //Inserimento dati nel contesto corretto
   useEffect(() => {

@@ -31,19 +31,21 @@ export default function ForecastComponent() {
   }
 
   return (
-    <div className="forecast-container">
+    <div className="forecast-general-container">
       {forecastData && <h2>Next days</h2>}
-      {forecastData &&
-        forecastData.map((day, i) => (
-          <div key={i} className="day-container">
-            <p className="day-name">{makeWeekDay(day.dt)}</p>
-            <img
-              src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
-              alt={`in-${i}-days-weather-icon`}
-            />
-            <p className="day-temp">{Math.round(day.temp.day)}°</p>
-          </div>
-        ))}
+      <div className="forecast-container">
+        {forecastData &&
+          forecastData.map((day, i) => (
+            <div key={i} className="day-container">
+              <p className="day-name">{makeWeekDay(day.dt)}</p>
+              <img
+                src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
+                alt={`in-${i}-days-weather-icon`}
+              />
+              <p className="day-temp">{Math.round(day.temp.day)}°</p>
+            </div>
+          ))}{" "}
+      </div>
     </div>
   );
 }

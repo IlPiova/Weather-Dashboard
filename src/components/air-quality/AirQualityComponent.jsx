@@ -8,6 +8,7 @@ import "./air-quality.scss";
 export default function AirQualityComponent() {
   const { AQData, setAQData } = useContext(AQContext);
   const { geoCoords } = useContext(geoContext);
+  const baseUrl = "https://api.openweathermap.org/";
 
   let lat = null;
   let lon = null;
@@ -20,7 +21,7 @@ export default function AirQualityComponent() {
     endPoint = `data/2.5/air_pollution?lat=${lat}&lon=${lon}`;
   }
 
-  const [data, loading, error] = useFetch(endPoint);
+  const [data, loading, error] = useFetch(baseUrl, endPoint);
 
   useEffect(() => {
     if (data) {
@@ -32,18 +33,18 @@ export default function AirQualityComponent() {
   //Mi servirà per scegliere il colore adatto in base alla pericolosità dell'inquinante
   const pollutantRanges = {
     so2: [
-      { level: "Good", min: 0, max: 20, backgroundolor: "green" },
-      { level: "Fair", min: 20, max: 80, backgroundolor: "lightgreen" },
-      { level: "Moderate", min: 80, max: 250, backgroundolor: "yellow" },
-      { level: "Poor", min: 250, max: 350, backgroundolor: "orange" },
-      { level: "Very Poor", min: 350, max: Infinity, backgroundolor: "red" },
+      { level: "Good", min: 0, max: 20, backgroundColor: "green" },
+      { level: "Fair", min: 20, max: 80, backgroundColor: "lightgreen" },
+      { level: "Moderate", min: 80, max: 250, backgroundColor: "yellow" },
+      { level: "Poor", min: 250, max: 350, backgroundColor: "orange" },
+      { level: "Very Poor", min: 350, max: Infinity, backgroundColor: "red" },
     ],
     no2: [
-      { level: "Good", min: 0, max: 40, backgroundolor: "green" },
-      { level: "Fair", min: 40, max: 70, backgroundolor: "lightgreen" },
-      { level: "Moderate", min: 70, max: 150, backgroundolor: "yellow" },
-      { level: "Poor", min: 150, max: 200, backgroundolor: "orange" },
-      { level: "Very Poor", min: 200, max: Infinity, backgroundolor: "red" },
+      { level: "Good", min: 0, max: 40, backgroundColor: "green" },
+      { level: "Fair", min: 40, max: 70, backgroundColor: "lightgreen" },
+      { level: "Moderate", min: 70, max: 150, backgroundColor: "yellow" },
+      { level: "Poor", min: 150, max: 200, backgroundColor: "orange" },
+      { level: "Very Poor", min: 200, max: Infinity, backgroundColor: "red" },
     ],
     pm10: [
       { level: "Good", min: 0, max: 20, backgroundColor: "green" },
@@ -103,6 +104,7 @@ export default function AirQualityComponent() {
     }
     return ranges[ranges.length - 1].backgroundColor;
   }
+
   let main, components;
   if (AQData && AQData.length > 0) {
     ({ main, components } = AQData[0]);
@@ -112,22 +114,24 @@ export default function AirQualityComponent() {
   return (
     <div className="aqi-general-container">
       {AQData && <h2>Air Quality Index</h2>}
-      {AQData &&
-        compArr.map((singleComp, i) => (
-          <div
-            key={i}
-            className="comp-container"
-            style={{
-              backgroundColor: getColorByPollutant(
-                singleComp[0],
-                singleComp[1]
-              ),
-            }}
-          >
-            <p className="comp-amount">{singleComp[1]}</p>
-            <p className="comp-name">{singleComp[0].toUpperCase()}</p>
-          </div>
-        ))}
+      <div className="aqi-container">
+        {AQData &&
+          compArr.map((singleComp, i) => (
+            <div
+              key={i}
+              className="comp-container"
+              style={{
+                backgroundColor: getColorByPollutant(
+                  singleComp[0],
+                  singleComp[1]
+                ),
+              }}
+            >
+              <p className="comp-amount">{singleComp[1]}</p>
+              <p className="comp-name">{singleComp[0].toUpperCase()}</p>
+            </div>
+          ))}
+      </div>
     </div>
   );
 }

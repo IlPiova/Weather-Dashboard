@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-function useFetch(endPoint) {
-  const baseUrl = "https://api.openweathermap.org/";
+function useFetch(baseUrl, endPoint) {
   const apiKey = import.meta.env.VITE_API_KEY;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");

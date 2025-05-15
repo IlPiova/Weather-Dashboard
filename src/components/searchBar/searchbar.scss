@@ -1,25 +1,19 @@
 @import "../../styles/utility";
 
 .form {
-  @include centered-container;
-  flex-direction: row;
-  gap: 12px;
+  @extend %centered-container;
+  background-color: white;
+  padding: 0.8em;
   width: 100%;
-  background-color: lighten($primary-color, $amount: 12);
-  border-radius: 6px;
-
+  height: auto;
+  border-radius: 12px;
   .input-text {
-    @include centered-container;
-    color: $secondary-color;
-    height: 100%;
-    border-radius: inherit;
-    padding: 0.2em;
-    background-color: inherit;
-    border: none;
+    width: 100%;
+    padding: 0.5em;
+    border: 2px solid $deep-blue;
     outline: none;
-    &::placeholder {
-      color: white;
-      opacity: 80%;
-    }
+    border-radius: 8px;
+    background-color: $bg-color;
+    color: $deep-blue;
   }
 }

@@ -4,6 +4,7 @@ import {
   geoContext,
   weatherContext,
   forecastContext,
+  hourlyContext,
 } from "../../stores/context";
 import "./currentWeather.scss";
 
@@ -11,6 +12,8 @@ export default function CurrentWeather() {
   const { weatherData, setWeatherData } = useContext(weatherContext);
   const { geoCoords } = useContext(geoContext);
   const { setForecastData } = useContext(forecastContext);
+  const { setHourlyData } = useContext(hourlyContext);
+  const baseUrl = "https://api.openweathermap.org/";
 
   //Costante utile per il calcolo della data
   const dateOptions = {
@@ -34,15 +37,16 @@ export default function CurrentWeather() {
   if (geoCoords && geoCoords.length > 0) {
     lat = geoCoords[0].lat;
     lon = geoCoords[0].lon;
-    endPoint = `data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&lang=it&exclude=minutely,hourly`;
+    endPoint = `data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&lang=it&exclude=minutely`;
   }
 
-  const [data, loading, error] = useFetch(endPoint);
+  const [data, loading, error] = useFetch(baseUrl, endPoint);
 
   useEffect(() => {
     if (data) {
       setWeatherData(data);
       setForecastData(data.daily);
+      setHourlyData(data.hourly);
     }
   }, [data, setWeatherData]);
   if (weatherData) {
@@ -62,20 +66,26 @@ export default function CurrentWeather() {
   }
   return (
     <>
+      {weatherData && <h3 className="today"> {today}</h3>}
       {weatherData && (
         <div className="current-weather-container">
           <img
             src={`https://openweathermap.org/img/wn/${curWeather.weather[0].icon}@2x.png`}
             alt="weather-icon "
           />
-          {/* <h3>Today: {today}</h3> */}
           <h2 className="temp">{Math.round(curWeather.temp)}°</h2>
-          <p> {curWeather.weather[0].description}</p>
-          <div className="day-phases-container">
-            <p>Sunrise: {sunrise}</p>
-            <p>Sunset: {sunset}</p>
-          </div>
+          <p className="description"> {curWeather.weather[0].description}</p>
+        </div>
+      )}
+      {weatherData && (
+        <div className="day-phases-container">
+          <p>Sunrise: {sunrise}</p>
+          <p>Sunset: {sunset}</p>
+        </div>
+      )}
 
+      {weatherData && (
+        <div className="other-info">
           <p>
             wind: {curWeather.wind_speed} | {curWeather.wind_deg} deg
           </p>

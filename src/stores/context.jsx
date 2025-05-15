@@ -65,3 +65,16 @@ export const AQProvider = ({ children }) => {
     </AQContext.Provider>
   );
 };
+
+//Gestione stato contenente le previsioni orarie
+export const hourlyContext = createContext({});
+
+export const HourlyProvider = ({ children }) => {
+  const [hourlyData, setHourlyData] = useState(null);
+
+  return (
+    <hourlyContext.Provider value={{ hourlyData, setHourlyData }}>
+      {children}
+    </hourlyContext.Provider>
+  );
+};

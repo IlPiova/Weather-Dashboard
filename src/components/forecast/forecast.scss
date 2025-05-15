@@ -1,24 +1,22 @@
 @import "../../styles/utility";
-.forecast-container {
-  @include centered-container;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 12px;
-  order: 2;
-  .day-container {
-    @include centered-container;
-    background-color: $secondary-color;
-    border-radius: 12px;
-    padding: 8px 0px;
-    .day-name {
-      font-size: 1em;
-      color: $primary-color;
-      font-weight: 500;
-    }
-    .day-temp {
-      font-size: 1em;
-      color: $primary-color;
-      font-weight: 500;
+
+.forecast-general-container {
+  @extend %centered-container;
+  @extend %container-style;
+  grid-area: forecast;
+  background-color: white;
+  .forecast-container {
+    @extend %centered-container;
+    @extend %container-style;
+    gap: 1em;
+    flex-direction: row;
+    .day-container {
+      @extend %centered-container;
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
     }
   }
 }

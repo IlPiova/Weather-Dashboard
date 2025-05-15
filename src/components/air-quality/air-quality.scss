@@ -1,30 +1,26 @@
 @import "../../styles/utility";
 
 .aqi-general-container {
-  @include centered-container;
-  height: auto;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 12px;
-  order: 3;
-  .comp-container {
-    @include centered-container;
-    justify-items: stretch;
-    background-color: green;
-    width: 5em;
-    padding: 8px 0px;
-    border-radius: 8px;
-    color: $secondary-color;
-    gap: 24px;
-    .comp-name {
-      font-size: 1.4em;
-      background-color: inherit;
-      color: inherit;
-    }
-    .comp-amount {
-      font-size: 1.4em;
-      background-color: inherit;
-      color: inherit;
+  @extend %centered-container;
+  @extend %container-style;
+  width: 100%;
+  grid-area: aqi;
+  background-color: white;
+  .aqi-container {
+    @extend %centered-container;
+    @extend %container-style;
+    margin-top: 1em;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 0.8em;
+
+    .comp-container {
+      @extend %centered-container;
+      @extend %container-style;
+      gap: 1em;
+      width: 5em;
+      height: auto;
     }
   }
 }
