@@ -10,6 +10,7 @@
     @extend %container-style;
     gap: 1em;
     flex-direction: row;
+    flex-wrap: wrap-reverse;
     .day-container {
       @extend %centered-container;
       img {

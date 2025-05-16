@@ -36,6 +36,7 @@
     }
   }
   .secondary-info {
+    width: 100%;
     .day-phases-container {
       @extend %centered-container;
       @extend %container-style;
@@ -60,16 +61,17 @@
   .general-weather-container {
     flex-direction: row;
     gap: 1em;
-    flex-grow: 2;
     .secondary-info {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
-      justify-items: stretch;
+      justify-content: center;
       align-items: center;
       height: 100%;
+      gap: 1em;
+      flex: 1;
       .day-phases-container {
         flex: 1;
+        height: 100%;
       }
       .other-info {
         flex: 1;
