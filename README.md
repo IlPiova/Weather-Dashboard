@@ -1,12 +1,38 @@
-# React + Vite
+# WeatherDashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Indice
 
-Currently, two official plugins are available:
+- [Il progetto](#il-progetto)
+- [Come provarlo?](#come-provarlo)
+- [Strumenti utilizzati](#strumenti-utilizzati)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Il progetto
 
-## Expanding the ESLint configuration
+Progetto che ho decciso di realizzare ispirato da un [concept di Oluwaferanmi Adedeji](https://www.behance.net/gallery/216207191/Weather-Dashboard-design?tracking_source=search_projects%7Cweather+dashboard&l=62).
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Puoi testarlo a [questo link](https://ilpiova-weather-dashboard.netlify.app)
+
+---
+
+## Perché ho scelto di fare questo progetto
+
+L'obbiettivo era di esercitarmi sia con il layout grid che con le context API, in previsione del [quarto](https://github.com/IlPiova/S2I-react-freshlyFood) e [quinto (e ultimo)](https://github.com/IlPiova/S2I-finalProjecct-global-warming-data) progetto del Master in Front-End Development con Start2Impact.
+
+---
+
+## Come provarlo?
+
+Basta collegarsi a **[questo link](https://ilpiova-weather-dashboard.netlify.app)** per vederlo in azione.
+
+---
+
+## Strumenti utilizzati
+
+- **React**
+  - React Router
+  - Context API
+  - Axios
+  - React Hooks
+- Sass (SCSS)
+- Vite
+- [API OpenWeather](https://github.com/IlPiova/S2I-react-freshlyFood)
