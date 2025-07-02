@@ -73,6 +73,10 @@ export default function CurrentWeather() {
               src={`https://openweathermap.org/img/wn/${curWeather.weather[0].icon}@2x.png`}
               alt="weather-icon "
             />
+            <h1 className="today" style={{ "font-size": "2em" }}>
+              {" "}
+              {geoCoords[0].name}
+            </h1>
             <h2 className="today"> {today}</h2>
             <h2 className="temp">{Math.round(curWeather.temp)}°</h2>
             <p className="description"> {curWeather.weather[0].description}</p>

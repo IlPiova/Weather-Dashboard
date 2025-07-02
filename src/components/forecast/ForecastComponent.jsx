@@ -20,7 +20,7 @@ export default function ForecastComponent() {
   }
 
   function makeWeekDay(timestamp) {
-    return new Date(timestamp * 1000).toLocaleDateString("gb-GB", dateOptions);
+    return new Date(timestamp * 1000).toLocaleDateString("it-IT", dateOptions);
   }
   if (forecastData) {
     //Impostazione variabile currentWeather
