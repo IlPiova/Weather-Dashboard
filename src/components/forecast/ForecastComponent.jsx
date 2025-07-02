@@ -16,11 +16,11 @@ export default function ForecastComponent() {
   };
 
   function makeTime(timestamp) {
-    return new Date(timestamp * 1000).toLocaleTimeString("gb-GB", timeOptions);
+    return new Date(timestamp * 1000).toLocaleTimeString("en-US", timeOptions);
   }
 
   function makeWeekDay(timestamp) {
-    return new Date(timestamp * 1000).toLocaleDateString("it-IT", dateOptions);
+    return new Date(timestamp * 1000).toLocaleDateString("en-US", dateOptions);
   }
   if (forecastData) {
     //Impostazione variabile currentWeather

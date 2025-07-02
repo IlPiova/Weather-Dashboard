@@ -5,6 +5,7 @@
   background-color: white;
   width: 100%;
   height: 100%;
+  gap: 1em;
 
   .current-weather-container {
     @extend %centered-container;
@@ -14,24 +15,22 @@
     height: 100%;
     color: $light-text-color;
     font-size: 1em;
+    gap: 1em;
 
     img {
-      width: 80%;
       height: auto;
       object-fit: cover;
-      margin-bottom: 0;
+      margin: 0;
     }
     .temp {
       @extend %inter-bold;
       font-size: 2em;
       color: $light-text-color;
-      margin-bottom: 0.5em;
       align-self: center;
     }
     .today {
       color: $light-text-color;
       font-size: 1em;
-      margin-bottom: 1em;
       align-self: center;
     }
   }
@@ -43,7 +42,6 @@
       @extend %centered-container;
       @extend %container-style;
       background: $deep-orange;
-      // margin-top: 12px;
       gap: 1em;
       color: $light-text-color;
     }
@@ -64,6 +62,31 @@
     flex-direction: row;
     gap: 1em;
     height: 20em;
+    .current-weather-container {
+      background-color: $deep-blue;
+      height: 100%;
+      color: $light-text-color;
+      font-size: 1em;
+      // flex-wrap: wrap;
+      gap: 0;
+
+      img {
+        height: auto;
+        object-fit: cover;
+        margin: 0;
+      }
+      .temp {
+        @extend %inter-bold;
+        font-size: 2em;
+        color: $light-text-color;
+        align-self: center;
+      }
+      .today {
+        color: $light-text-color;
+        font-size: 1em;
+        align-self: center;
+      }
+    }
     .secondary-info {
       height: 100%;
       display: flex;
@@ -74,6 +97,7 @@
       flex: 1;
       .day-phases-container {
         height: 100%;
+        flex: 1;
       }
       .other-info {
         flex: 1;

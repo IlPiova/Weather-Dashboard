@@ -28,7 +28,9 @@ export default function SearchBar() {
           placeholder="Inserisci la città"
           className="input-text"
         />
-        {/* <button type="submit">Cerca</button> */}
+        {/* <button type="submit" onSubmit={handleSubmit}>
+          Cerca
+        </button> */}
       </form>
     </>
   );
