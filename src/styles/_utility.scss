@@ -63,6 +63,9 @@ h2 {
 }
 
 #root {
+  margin: auto;
+}
+.dashboard-container {
   display: grid;
   grid-template-columns: 1fr 1fr 0.5fr;
   grid-template-rows: auto;
@@ -77,7 +80,7 @@ h2 {
 }
 
 @media screen and (max-width: 798px) {
-  #root {
+  .dashboard-container {
     display: flex;
     justify-content: center;
     align-items: center;

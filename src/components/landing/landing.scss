@@ -1,0 +1,33 @@
+@import "../../styles/utility";
+
+.landing-container {
+  width: 100%;
+  margin: 3em auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  justify-content: center;
+  align-items: center;
+
+  .cities-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+  }
+}
+
+@media screen and (min-width: 641px) and (max-width: 798px) {
+  .landing-container {
+    .cities-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .landing-container {
+    .cities-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

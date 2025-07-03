@@ -2,11 +2,15 @@ import { useContext, useState } from "react";
 import { cityContext } from "../../stores/context";
 
 import "./searchbar.scss";
+import { useLocation, useNavigate } from "react-router";
 
 export default function SearchBar() {
   const { setCityName } = useContext(cityContext);
 
   const [newCity, setNewCity] = useState("");
+
+  let navigate = useNavigate();
+  let location = useLocation();
 
   function handleChange(e) {
     setNewCity(e.target.value);
@@ -16,6 +20,9 @@ export default function SearchBar() {
     e.preventDefault();
     setCityName(newCity);
     setNewCity("");
+    if (newCity) {
+      if (location.pathname !== "/dashboard") navigate("dashboard");
+    }
   }
 
   return (
@@ -28,9 +35,6 @@ export default function SearchBar() {
           placeholder="Inserisci la città"
           className="input-text"
         />
-        {/* <button type="submit" onSubmit={handleSubmit}>
-          Cerca
-        </button> */}
       </form>
     </>
   );

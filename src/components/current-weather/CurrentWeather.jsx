@@ -37,7 +37,7 @@ export default function CurrentWeather() {
   if (geoCoords && geoCoords.length > 0) {
     lat = geoCoords[0].lat;
     lon = geoCoords[0].lon;
-    endPoint = `data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&lang=it&exclude=minutely`;
+    endPoint = `data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely`;
   }
 
   const [data, loading, error] = useFetch(baseUrl, endPoint);

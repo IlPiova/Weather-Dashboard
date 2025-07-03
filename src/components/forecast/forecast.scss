@@ -10,14 +10,22 @@
     @extend %container-style;
     gap: 1em;
     flex-direction: row;
-    flex-wrap: wrap-reverse;
+    // flex-wrap: wrap-reverse;
     .day-container {
       @extend %centered-container;
       img {
-        width: 100%;
+        width: 80%;
         height: auto;
         object-fit: cover;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 798px) {
+  .forecast-general-container {
+    .forecast-container {
+      flex-wrap: wrap-reverse;
     }
   }
 }

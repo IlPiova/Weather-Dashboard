@@ -6,10 +6,12 @@ import SideBar from "../components/sidebar/SideBar";
 export default function Home() {
   return (
     <>
-      <SideBar />
-      <ForecastComponent />
-      <HourlyComponent />
-      <AirQualityComponent />
+      <div className="dashboard-container">
+        <SideBar />
+        <ForecastComponent />
+        <HourlyComponent />
+        <AirQualityComponent />
+      </div>
     </>
   );
 }
